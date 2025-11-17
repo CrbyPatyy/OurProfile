@@ -39,6 +39,23 @@ function animateCursor() {
 }
 animateCursor();
 
+// Mobile Navigation
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
 // Nav scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -136,7 +153,7 @@ window.addEventListener('load', () => {
 });
 
 // Hover effects
-const interactiveElements = document.querySelectorAll('a, .service-card, button, .cta-button');
+const interactiveElements = document.querySelectorAll('a, .service-card, .cta-button');
 interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.style.width = '14px';
